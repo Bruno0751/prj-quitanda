@@ -39,7 +39,7 @@ public class GUICadastroDeFrutas extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setTitle("Cadastro de Fruta");
 
-        jlpAcoesDeCadatro.setBorder(new javax.swing.border.MatteBorder(null));
+        jlpAcoesDeCadatro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jbCadastroCoisas.setText("Cadastrar");
         jbCadastroCoisas.addActionListener(new java.awt.event.ActionListener() {
@@ -54,6 +54,8 @@ public class GUICadastroDeFrutas extends javax.swing.JInternalFrame {
         });
 
         jbLimparCadastroCoisas.setText("Limpar");
+        jbLimparCadastroCoisas.setMaximumSize(new java.awt.Dimension(83, 28));
+        jbLimparCadastroCoisas.setMinimumSize(new java.awt.Dimension(83, 28));
         jbLimparCadastroCoisas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbLimparCadastroCoisasActionPerformed(evt);
@@ -61,6 +63,8 @@ public class GUICadastroDeFrutas extends javax.swing.JInternalFrame {
         });
 
         jButtonCloseSysten.setText("Desligar");
+        jButtonCloseSysten.setMaximumSize(new java.awt.Dimension(83, 28));
+        jButtonCloseSysten.setMinimumSize(new java.awt.Dimension(83, 28));
         jButtonCloseSysten.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCloseSystenActionPerformed(evt);
@@ -76,32 +80,35 @@ public class GUICadastroDeFrutas extends javax.swing.JInternalFrame {
         jlpAcoesDeCadatroLayout.setHorizontalGroup(
             jlpAcoesDeCadatroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jlpAcoesDeCadatroLayout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(jbCadastroCoisas)
-                .addGap(4, 4, 4)
-                .addComponent(jButtonCloseSysten)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jbLimparCadastroCoisas)
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addGap(145, 145, 145)
+                .addGroup(jlpAcoesDeCadatroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonCloseSysten, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbLimparCadastroCoisas, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbCadastroCoisas))
+                .addContainerGap(157, Short.MAX_VALUE))
         );
         jlpAcoesDeCadatroLayout.setVerticalGroup(
             jlpAcoesDeCadatroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jlpAcoesDeCadatroLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(jlpAcoesDeCadatroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbCadastroCoisas)
-                    .addComponent(jbLimparCadastroCoisas)
-                    .addComponent(jButtonCloseSysten))
-                .addContainerGap(40, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jlpAcoesDeCadatroLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jbCadastroCoisas)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbLimparCadastroCoisas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonCloseSysten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
-        jlpDadosCadastroCoisas.setBorder(new javax.swing.border.MatteBorder(null));
+        jlpDadosCadastroCoisas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jlNome.setText("Nome");
+        jlNome.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jlNome.setText("Nome:");
 
-        jlValor.setText("Valor");
+        jlValor.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jlValor.setText("Valor:");
 
-        jlQuantidade.setText("Quantidade");
+        jlQuantidade.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jlQuantidade.setText("Quantidade:");
 
         jtNome.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -135,53 +142,54 @@ public class GUICadastroDeFrutas extends javax.swing.JInternalFrame {
             .addGroup(jlpDadosCadastroCoisasLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jlpDadosCadastroCoisasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jlQuantidade)
-                    .addComponent(jlValor)
-                    .addComponent(jlNome))
-                .addGap(18, 18, 18)
-                .addGroup(jlpDadosCadastroCoisasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                    .addComponent(jtValor, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                    .addComponent(jtQuantidade))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jtQuantidade)
+                    .addComponent(jtValor)
+                    .addGroup(jlpDadosCadastroCoisasLayout.createSequentialGroup()
+                        .addGroup(jlpDadosCadastroCoisasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jlValor)
+                            .addComponent(jlNome)
+                            .addComponent(jlQuantidade))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jtNome))
+                .addContainerGap())
         );
         jlpDadosCadastroCoisasLayout.setVerticalGroup(
             jlpDadosCadastroCoisasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jlpDadosCadastroCoisasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jlpDadosCadastroCoisasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jlNome)
-                    .addComponent(jtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jlpDadosCadastroCoisasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jlValor)
-                    .addComponent(jtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jlpDadosCadastroCoisasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jlQuantidade)
-                    .addComponent(jtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addComponent(jlNome)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jlValor)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jlQuantidade)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jlpDadosCadastroCoisas)
-                    .addComponent(jlpAcoesDeCadatro))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jlpDadosCadastroCoisas, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jlpAcoesDeCadatro, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jlpDadosCadastroCoisas)
+                .addComponent(jlpDadosCadastroCoisas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jlpAcoesDeCadatro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();

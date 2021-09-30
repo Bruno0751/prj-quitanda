@@ -40,13 +40,23 @@ public class GUICadastroDeCliente extends javax.swing.JInternalFrame {
         setResizable(true);
         setTitle("Cadastro de Cliente");
 
-        jlpDadosCliente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jlpDadosCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jlIdadeCliente.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jlIdadeCliente.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jlIdadeCliente.setText("Idade");
+        jlIdadeCliente.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
-        jlNomeCliente.setText("Nome Do Cliente");
+        jlNomeCliente.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jlNomeCliente.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jlNomeCliente.setText("Nome:");
+        jlNomeCliente.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jlNomeCliente.setAlignmentY(0.0F);
 
-        jlCPF.setText("cpf");
+        jlCPF.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jlCPF.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jlCPF.setText("cpf:");
+        jlCPF.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         jtNomeCliente.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -67,7 +77,7 @@ public class GUICadastroDeCliente extends javax.swing.JInternalFrame {
         });
 
         jlpDadosCliente.setLayer(jlIdadeCliente, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jlpDadosCliente.setLayer(jlNomeCliente, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jlpDadosCliente.setLayer(jlNomeCliente, javax.swing.JLayeredPane.DRAG_LAYER);
         jlpDadosCliente.setLayer(jlCPF, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jlpDadosCliente.setLayer(jtNomeCliente, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jlpDadosCliente.setLayer(jtCPF, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -78,41 +88,42 @@ public class GUICadastroDeCliente extends javax.swing.JInternalFrame {
         jlpDadosClienteLayout.setHorizontalGroup(
             jlpDadosClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jlpDadosClienteLayout.createSequentialGroup()
-                .addGap(82, 82, 82)
+                .addContainerGap()
                 .addGroup(jlpDadosClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jlCPF)
-                    .addComponent(jlNomeCliente)
-                    .addComponent(jlIdadeCliente))
-                .addGap(33, 33, 33)
-                .addGroup(jlpDadosClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jtNomeCliente)
                     .addComponent(jtCPF)
-                    .addComponent(jtIdadeCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jtNomeCliente)
+                    .addGroup(jlpDadosClienteLayout.createSequentialGroup()
+                        .addGroup(jlpDadosClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jlNomeCliente)
+                            .addComponent(jlCPF)
+                            .addComponent(jlIdadeCliente))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jtIdadeCliente))
+                .addContainerGap())
         );
         jlpDadosClienteLayout.setVerticalGroup(
             jlpDadosClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jlpDadosClienteLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(jlpDadosClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jlpDadosClienteLayout.createSequentialGroup()
-                        .addGroup(jlpDadosClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jtNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlNomeCliente))
-                        .addGap(65, 65, 65))
-                    .addGroup(jlpDadosClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jlCPF)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addGroup(jlpDadosClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtIdadeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlIdadeCliente))
-                .addGap(58, 58, 58))
+                .addContainerGap()
+                .addComponent(jlNomeCliente)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jtNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jlCPF)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jlIdadeCliente)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jtIdadeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jlpAcoesDoCliente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jlpAcoesDoCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jbLimparCliente.setText("Limpar");
+        jbLimparCliente.setMaximumSize(new java.awt.Dimension(83, 28));
+        jbLimparCliente.setMinimumSize(new java.awt.Dimension(83, 28));
         jbLimparCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbLimparClienteActionPerformed(evt);
@@ -120,6 +131,9 @@ public class GUICadastroDeCliente extends javax.swing.JInternalFrame {
         });
 
         jbCadatrarCliente.setText("Cadatrar");
+        jbCadatrarCliente.setMaximumSize(new java.awt.Dimension(83, 28));
+        jbCadatrarCliente.setMinimumSize(new java.awt.Dimension(83, 28));
+        jbCadatrarCliente.setPreferredSize(new java.awt.Dimension(83, 28));
         jbCadatrarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbCadatrarClienteActionPerformed(evt);
@@ -132,6 +146,8 @@ public class GUICadastroDeCliente extends javax.swing.JInternalFrame {
         });
 
         jButtonCloseSysten.setText("Desligar");
+        jButtonCloseSysten.setMaximumSize(new java.awt.Dimension(83, 28));
+        jButtonCloseSysten.setMinimumSize(new java.awt.Dimension(83, 28));
         jButtonCloseSysten.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCloseSystenActionPerformed(evt);
@@ -147,34 +163,34 @@ public class GUICadastroDeCliente extends javax.swing.JInternalFrame {
         jlpAcoesDoClienteLayout.setHorizontalGroup(
             jlpAcoesDoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jlpAcoesDoClienteLayout.createSequentialGroup()
-                .addGap(97, 97, 97)
-                .addComponent(jbLimparCliente)
-                .addGap(46, 46, 46)
-                .addComponent(jButtonCloseSysten)
-                .addGap(45, 45, 45)
-                .addComponent(jbCadatrarCliente)
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addGap(151, 151, 151)
+                .addGroup(jlpAcoesDoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonCloseSysten, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbLimparCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbCadatrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
         jlpAcoesDoClienteLayout.setVerticalGroup(
             jlpAcoesDoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jlpAcoesDoClienteLayout.createSequentialGroup()
-                .addGap(88, 88, 88)
-                .addGroup(jlpAcoesDoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbLimparCliente)
-                    .addComponent(jbCadatrarCliente)
-                    .addComponent(jButtonCloseSysten))
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jbCadatrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbLimparCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonCloseSysten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jlpAcoesDoCliente)
-                    .addComponent(jlpDadosCliente))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jlpDadosCliente)
+                    .addComponent(jlpAcoesDoCliente))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -183,8 +199,8 @@ public class GUICadastroDeCliente extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jlpDadosCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jlpAcoesDoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addComponent(jlpAcoesDoCliente)
+                .addContainerGap())
         );
 
         pack();
@@ -198,24 +214,6 @@ public class GUICadastroDeCliente extends javax.swing.JInternalFrame {
         insert();
     }//GEN-LAST:event_jbCadatrarClienteActionPerformed
 
-    private void jtNomeClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNomeClienteKeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            jtCPF.grabFocus();
-        }
-    }//GEN-LAST:event_jtNomeClienteKeyPressed
-
-    private void jtCPFKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtCPFKeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            jtIdadeCliente.grabFocus();
-        }
-    }//GEN-LAST:event_jtCPFKeyPressed
-
-    private void jtIdadeClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtIdadeClienteKeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            jbCadatrarCliente.grabFocus();
-        }
-    }//GEN-LAST:event_jtIdadeClienteKeyPressed
-
     private void jbCadatrarClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jbCadatrarClienteKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             insert();
@@ -225,6 +223,24 @@ public class GUICadastroDeCliente extends javax.swing.JInternalFrame {
     private void jButtonCloseSystenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCloseSystenActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButtonCloseSystenActionPerformed
+
+    private void jtIdadeClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtIdadeClienteKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            jbCadatrarCliente.grabFocus();
+        }
+    }//GEN-LAST:event_jtIdadeClienteKeyPressed
+
+    private void jtCPFKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtCPFKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            jtIdadeCliente.grabFocus();
+        }
+    }//GEN-LAST:event_jtCPFKeyPressed
+
+    private void jtNomeClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNomeClienteKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            jtCPF.grabFocus();
+        }
+    }//GEN-LAST:event_jtNomeClienteKeyPressed
 
     private void insert() {
         try {
