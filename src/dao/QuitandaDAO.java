@@ -20,7 +20,7 @@ public class QuitandaDAO {
         Statement sta = con.createStatement();
         try {
             
-            String sql = "INSERT INTO test.quitandas_quitanda(id_quitanda, nome, cliente, funcionario, data_registro, hora_registro)"
+            String sql = "INSERT INTO quitandas_quitanda(id_quitanda, nome, cliente, funcionario, data_registro, hora_registro)"
                     + "VALUES (NULL, '" + obj.getNome() + "', '" + obj.getClientes() + "', '" + obj.getFuncionarios() + "', NOW(), NOW());";
             sta.execute(sql);
         } catch (SQLException e) {
@@ -38,7 +38,7 @@ public class QuitandaDAO {
         try {
             
           
-            String sql = "SELECT * FROM test.quitandas_quitanda;";
+            String sql = "SELECT * FROM quitandas_quitanda;";
 
             ResultSet rs = stat.executeQuery(sql);
 
@@ -70,7 +70,7 @@ public class QuitandaDAO {
         Statement stat = con.createStatement();
         try {
                       
-            String sql = "SELECT * FROM test.quitandas_quitanda " + query + ";";
+            String sql = "SELECT * FROM quitandas_quitanda " + query + ";";
 
             ResultSet rs = stat.executeQuery(sql);
 
@@ -102,7 +102,7 @@ public class QuitandaDAO {
         Connection con = ConexaoBanco.getConexao();
         Statement stat = con.createStatement();    
         try{
-            String sql = "DELETE FROM test.quitandas_quitanda WHERE id_quitanda = " + id + ";";
+            String sql = "DELETE FROM quitandas_quitanda WHERE id_quitanda = " + id + ";";
             stat.execute(sql);
         } catch (Exception e) {
             e.printStackTrace();
@@ -122,7 +122,7 @@ public class QuitandaDAO {
 
             
 
-            String sql = "UPDATE test.quitandas_quitanda SET nome = '" + obj.getNome() + "', cliente = '" + obj.getClientes() + "', funcionario = '" + obj.getFuncionarios() + "' WHERE id_quitanda = " + obj.getIdQuitanda() + ";";
+            String sql = "UPDATE quitandas_quitanda SET nome = '" + obj.getNome() + "', cliente = '" + obj.getClientes() + "', funcionario = '" + obj.getFuncionarios() + "' WHERE id_quitanda = " + obj.getIdQuitanda() + ";";
 
             stat.executeUpdate(sql);
         } catch (SQLException e) {

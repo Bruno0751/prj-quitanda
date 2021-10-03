@@ -223,8 +223,9 @@ public class MenuPricipal extends javax.swing.JFrame {
         try {
             c.getConexao();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "erro de conexão\n" + e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
+            
         } finally {
+            
         }
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
