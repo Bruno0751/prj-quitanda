@@ -3,6 +3,7 @@ package view;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import persistence.ConexaoBanco;
+import persistence.GUIConexaoMysql;
 /**
  *
  * @author Bruno Gressler da Silveira
@@ -29,9 +30,10 @@ public class MenuPricipal extends javax.swing.JFrame {
         jMenuItemManutencaoClientes = new javax.swing.JMenuItem();
         jMenuItemManutencaoFruta = new javax.swing.JMenuItem();
         jMenuItemManutencaoQuitandas = new javax.swing.JMenuItem();
+        jMenuConexao = new javax.swing.JMenu();
         jMenuSair = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Bem Vindo - Area De Trabalho");
 
         jAreaDeTrabalho.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -114,6 +116,14 @@ public class MenuPricipal extends javax.swing.JFrame {
 
         jMenuBarPrincipal.add(jMenuManutencao);
 
+        jMenuConexao.setText("Conexao");
+        jMenuConexao.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuConexaoMouseClicked(evt);
+            }
+        });
+        jMenuBarPrincipal.add(jMenuConexao);
+
         jMenuSair.setText("Sair");
         jMenuSair.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -175,6 +185,11 @@ public class MenuPricipal extends javax.swing.JFrame {
     private void jMenuItemCadastroFrutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroFrutaActionPerformed
         abrirCadastroDeFrutas();
     }//GEN-LAST:event_jMenuItemCadastroFrutaActionPerformed
+
+    private void jMenuConexaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuConexaoMouseClicked
+        new GUIConexaoMysql().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuConexaoMouseClicked
 
     private void abrirCadastroDeFrutas(){
         GUICadastroDeFrutas gcc = new GUICadastroDeFrutas();
@@ -261,6 +276,7 @@ public class MenuPricipal extends javax.swing.JFrame {
     private javax.swing.JDesktopPane jAreaDeTrabalho;
     private javax.swing.JMenuBar jMenuBarPrincipal;
     private javax.swing.JMenu jMenuCadastrar;
+    private javax.swing.JMenu jMenuConexao;
     private javax.swing.JMenuItem jMenuItemCadastroCliente;
     private javax.swing.JMenuItem jMenuItemCadastroFruta;
     private javax.swing.JMenuItem jMenuItemCadsatroQuitanda;
