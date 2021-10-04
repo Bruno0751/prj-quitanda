@@ -15,7 +15,7 @@ import persistence.ConexaoBanco;
  */
 public class ClienteDAO {
     
-    private final String QUERYALL = "SELECT * FROM test.clientes_quitanda;";
+    private final String QUERYALL = "SELECT * FROM clientes_quitanda;";
     
     public void insert(Cliente obj) throws SQLException, ClassNotFoundException{
         Connection con = ConexaoBanco.getConexao();
@@ -23,7 +23,7 @@ public class ClienteDAO {
         try {
             String sql;
             
-            sql = "INSERT INTO test.clientes_quitanda(id_cliente, nome, cpf, idade, data_registro, hora_registro)"
+            sql = "INSERT INTO clientes_quitanda(id_cliente, nome, cpf, idade, data_registro, hora_registro)"
                     + "VALUES (NULL, '" + obj.getNome() + "', '" + obj.getCpf()+ "', " + obj.getIdade() + ", NOW(), NOW());";
             sta.execute(sql);
         } catch (SQLException e) {
@@ -70,7 +70,7 @@ public class ClienteDAO {
         Statement stat = con.createStatement();
         try {
             String sql;
-            sql = "SELECT * FROM test.clientes_quitanda " + query + ";";
+            sql = "SELECT * FROM clientes_quitanda " + query + ";";
 
             ResultSet rs = stat.executeQuery(sql);
 
@@ -102,7 +102,7 @@ public class ClienteDAO {
         Connection con = ConexaoBanco.getConexao();
         Statement stat = con.createStatement();    
         try{
-            String sql = "DELETE FROM test.clientes_quitanda WHERE id_cliente = " + id + ";";
+            String sql = "DELETE FROM clientes_quitanda WHERE id_cliente = " + id + ";";
             stat.execute(sql);
         } catch (Exception e) {
             e.printStackTrace();
@@ -120,7 +120,7 @@ public class ClienteDAO {
         Statement stat = con.createStatement();
         try {
 
-            String sql = "UPDATE test.clientes_quitanda SET nome = '" + obj.getNome() + "', cpf = '" + obj.getCpf()+ "', idade = " + obj.getIdade() + " WHERE id_cliente = " + obj.getIdCliente() + ";";
+            String sql = "UPDATE clientes_quitanda SET nome = '" + obj.getNome() + "', cpf = '" + obj.getCpf()+ "', idade = " + obj.getIdade() + " WHERE id_cliente = " + obj.getIdCliente() + ";";
 
             stat.executeUpdate(sql);
         } catch (SQLException e) {

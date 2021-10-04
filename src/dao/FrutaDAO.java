@@ -21,7 +21,7 @@ public class FrutaDAO {
         try {
             String sql;
             
-            sql = "INSERT INTO test.frutas_quitanda(id_fruta, nome, valor, quantidade, data_registro, hora_registro)"
+            sql = "INSERT INTO frutas_quitanda(id_fruta, nome, valor, quantidade, data_registro, hora_registro)"
                     + "VALUES (NULL, '" + obj.getNome() + "'," + obj.getValorCusto() + "," + obj.getQuantidade() + ", NOW(), NOW());";
             sta.execute(sql);
         } catch (SQLException e) {
@@ -39,7 +39,7 @@ public class FrutaDAO {
         try {
             String sql;
           
-            sql = "SELECT * FROM test.frutas_quitanda;";
+            sql = "SELECT * FROM frutas_quitanda;";
 
             ResultSet rs = stat.executeQuery(sql);
 
@@ -72,7 +72,7 @@ public class FrutaDAO {
         try {
             String sql;
                       
-            sql = "SELECT * FROM test.frutas_quitanda " + query + ";";
+            sql = "SELECT * FROM frutas_quitanda " + query + ";";
 
             ResultSet rs = stat.executeQuery(sql);
 
@@ -104,7 +104,7 @@ public class FrutaDAO {
         Connection con = ConexaoBanco.getConexao();
         Statement stat = con.createStatement();    
         try{
-            String sql = "DELETE FROM test.frutas_quitanda WHERE id_fruta = " + id + ";";
+            String sql = "DELETE FROM frutas_quitanda WHERE id_fruta = " + id + ";";
             stat.execute(sql);
         } catch (Exception e) {
             e.printStackTrace();
@@ -121,7 +121,7 @@ public class FrutaDAO {
 
         Statement stat = con.createStatement();
         try {
-            String sql = "UPDATE test.frutas_quitanda SET nome = '" + obj.getNome() + "', valor = " + obj.getValorCusto() + ", quantidade = " + obj.getQuantidade()+" WHERE id_fruta = " + obj.getIdFruta() + ";";
+            String sql = "UPDATE frutas_quitanda SET nome = '" + obj.getNome() + "', valor = " + obj.getValorCusto() + ", quantidade = " + obj.getQuantidade()+" WHERE id_fruta = " + obj.getIdFruta() + ";";
 
             stat.executeUpdate(sql);
 
