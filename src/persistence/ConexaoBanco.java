@@ -16,8 +16,9 @@ public class ConexaoBanco {
 
     //private static final String DRIVE = "com.mysql.jdbc.Driver";
     private static final String DRIVE = "com.mysql.cj.jdbc.Driver";
-    //private static final String URL = "jdbc:mysql://10.1.0.201:3306/test";
-    private static final String URL = "jdbc:mysql://127.0.0.1:3306/quitanda?useTimezone=true&serverTimezone=UTC";
+    //private static final String URL = "jdbc:mysql://10.1.0.201:3306/test?useTimezone=true&serverTimezone=UTC";
+    //private static final String URL = "jdbc:mysql://127.0.0.1:3306/quitanda?useTimezone=true&serverTimezone=UTC";
+    private static final String URL = "";
     private static final String USER = "root";
     private static final String PASSWORD = "";
     
