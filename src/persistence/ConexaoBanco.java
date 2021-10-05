@@ -15,7 +15,9 @@ import javax.swing.JOptionPane;
 public class ConexaoBanco {
 
     //private static final String DRIVE = "com.mysql.jdbc.Driver";
-    private static final String DRIVE = "com.mysql.cj.jdbc.Driver";
+    //private static final String DRIVE = "com.mysql.cj.jdbc.Driver";
+    private static final String DRIVE = "";
+    
     //private static final String URL = "jdbc:mysql://10.1.0.201:3306/test?useTimezone=true&serverTimezone=UTC";
     //private static final String URL = "jdbc:mysql://127.0.0.1:3306/quitanda?useTimezone=true&serverTimezone=UTC";
     private static final String URL = "";
@@ -23,17 +25,17 @@ public class ConexaoBanco {
     private static final String PASSWORD = "";
     
     public static Connection getConexao() throws SQLException, ClassNotFoundException {
-        Connection objConnection = null;
+        Connection connection = null;
         try {
             Class.forName(DRIVE);
             //String URL = "jdbc:mysql://localhost:3306/quitanda?useTimezone=true&serverTimezone=UTC&user=root&password=9320";
-            objConnection = DriverManager.getConnection(URL, USER, PASSWORD);
+            connection = DriverManager.getConnection(URL, USER, PASSWORD);
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "erro de conexão\n" + e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
             System.exit(0);
         } finally {
-            return objConnection;
+            return connection;
         }
     }
 }
