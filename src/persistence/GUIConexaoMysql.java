@@ -18,7 +18,6 @@ public class GUIConexaoMysql extends javax.swing.JFrame {
      */
     public GUIConexaoMysql() {
         initComponents();
-        setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**
@@ -38,6 +37,8 @@ public class GUIConexaoMysql extends javax.swing.JFrame {
         jLabelPASSWORD = new javax.swing.JLabel();
         jTextFieldPASSWORD = new javax.swing.JTextField();
         jButtonTestarConexao = new javax.swing.JButton();
+        jButtonDesligar = new javax.swing.JButton();
+        jButtonVoltar = new javax.swing.JButton();
         jMenuBarConexao = new javax.swing.JMenuBar();
         jMenuVoltar = new javax.swing.JMenu();
 
@@ -102,6 +103,20 @@ public class GUIConexaoMysql extends javax.swing.JFrame {
             }
         });
 
+        jButtonDesligar.setText("Desligar");
+        jButtonDesligar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDesligarActionPerformed(evt);
+            }
+        });
+
+        jButtonVoltar.setText("Voltar");
+        jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVoltarActionPerformed(evt);
+            }
+        });
+
         jMenuVoltar.setText("Voltar");
         jMenuVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -122,7 +137,10 @@ public class GUIConexaoMysql extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(135, 135, 135)
-                .addComponent(jButtonTestarConexao)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonDesligar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonTestarConexao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(150, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -130,9 +148,13 @@ public class GUIConexaoMysql extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addComponent(jButtonVoltar)
+                .addGap(18, 18, 18)
                 .addComponent(jButtonTestarConexao)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonDesligar)
+                .addContainerGap())
         );
 
         pack();
@@ -148,8 +170,19 @@ public class GUIConexaoMysql extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButtonTestarConexaoActionPerformed
 
+    private void jButtonDesligarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDesligarActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jButtonDesligarActionPerformed
+
+    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
+       MenuPricipal menuPrincipal = new MenuPricipal();
+       menuPrincipal.setVisible(true);
+    }//GEN-LAST:event_jButtonVoltarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonDesligar;
     private javax.swing.JButton jButtonTestarConexao;
+    private javax.swing.JButton jButtonVoltar;
     private javax.swing.JLabel jLabelPASSWORD;
     private javax.swing.JLabel jLabelURL;
     private javax.swing.JLabel jLabelUSER;
