@@ -1,12 +1,12 @@
 //PROJECT NAME: prjBruno-quitanda
-package view;
+package bruno.com.view;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import model.Fruta;
-import services.FrutaServices;
-import services.FactoryServices;
+import bruno.com.model.Fruta;
+import bruno.com.services.FrutaServices;
+import bruno.com.services.FactoryServices;
 
 /**
  *
@@ -22,7 +22,7 @@ public class GUIManutencaoDeFrutas extends javax.swing.JInternalFrame {
 
     public GUIManutencaoDeFrutas() {
         initComponents();
-        select();
+        selectAll();
     }
 
     @SuppressWarnings("unchecked")
@@ -203,10 +203,7 @@ public class GUIManutencaoDeFrutas extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jtNomeFruta)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jtNomeFruta)
                             .addComponent(jtQuantidadeFruta)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -273,12 +270,12 @@ public class GUIManutencaoDeFrutas extends javax.swing.JInternalFrame {
     private void jbDeletarCoisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDeletarCoisaActionPerformed
         delete();
         clear();
-        select();
+        selectAll();
     }//GEN-LAST:event_jbDeletarCoisaActionPerformed
 
     private void jbAtualizaCoisasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAtualizaCoisasActionPerformed
         clear();
-        select();
+        selectAll();
     }//GEN-LAST:event_jbAtualizaCoisasActionPerformed
 
     private void jbLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimparActionPerformed
@@ -288,7 +285,7 @@ public class GUIManutencaoDeFrutas extends javax.swing.JInternalFrame {
     private void jbAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAlterarActionPerformed
         update();
         clear();
-        select();
+        selectAll();
     }//GEN-LAST:event_jbAlterarActionPerformed
 
     private void jTableFrutasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableFrutasMouseClicked
@@ -297,38 +294,38 @@ public class GUIManutencaoDeFrutas extends javax.swing.JInternalFrame {
 
     private void jComboFiltroItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboFiltroItemStateChanged
         clear();
-        filter();
+        selectBy();
     }//GEN-LAST:event_jComboFiltroItemStateChanged
 
     private void jComboFiltroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jComboFiltroKeyReleased
         clear();
-        filter();
+        selectBy();
     }//GEN-LAST:event_jComboFiltroKeyReleased
 
     private void jtPesqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtPesqKeyReleased
         clear();
-        filter();
+        selectBy();
     }//GEN-LAST:event_jtPesqKeyReleased
 
     private void jButtonCloseSystenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCloseSystenActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButtonCloseSystenActionPerformed
 
-    private void select() {
+    private void selectAll() {
         try {
 
             FrutaServices frutaServices = FactoryServices.getFrutasServices();
 
-            ArrayList<Fruta> listaFrutas = new ArrayList<>();
+            ArrayList<Fruta> lista = new ArrayList<>();
 
-            listaFrutas = frutaServices.select();
+            lista = frutaServices.selectAll();
 
-            for (int i = 0; i < listaFrutas.size(); i++) {
+            for (int i = 0; i < lista.size(); i++) {
                 defaultTableModel.addRow(new String[]{
-                    String.valueOf(listaFrutas.get(i).getIdFruta()),
-                    String.valueOf(listaFrutas.get(i).getNome()),
-                    String.valueOf(listaFrutas.get(i).getValorCusto()),
-                    String.valueOf(listaFrutas.get(i).getQuantidade())
+                    String.valueOf(lista.get(i).getIdFruta()),
+                    String.valueOf(lista.get(i).getNome()),
+                    String.valueOf(lista.get(i).getValorCusto()),
+                    String.valueOf(lista.get(i).getQuantidade())
                 });
             }
             jTableFrutas.setModel(defaultTableModel);
@@ -398,7 +395,7 @@ public class GUIManutencaoDeFrutas extends javax.swing.JInternalFrame {
             fruta.setValorCusto(Float.parseFloat(jtValorFruta.getText()));
             fruta.setQuantidade(Integer.parseInt(jtQuantidadeFruta.getText()));
 
-            FrutaServices frutaServices = services.FactoryServices.getFrutasServices();
+            FrutaServices frutaServices = bruno.com.services.FactoryServices.getFrutasServices();
 
             frutaServices.update(fruta);
 
@@ -411,10 +408,10 @@ public class GUIManutencaoDeFrutas extends javax.swing.JInternalFrame {
         jtIdFruta.setText(null);
     }
 
-    private void filter() {
+    private void selectBy() {
         try {
             if (jtPesq.getText().isEmpty()) {
-                select();
+                selectAll();
             } else {
                 String pesquisa = jtPesq.getText();
                 String filtro = jComboFiltro.getSelectedItem().toString();
@@ -430,14 +427,14 @@ public class GUIManutencaoDeFrutas extends javax.swing.JInternalFrame {
                 }
                 FrutaServices frutaServices = FactoryServices.getFrutasServices();
                 
-                ArrayList<Fruta> listaFrutas = frutaServices.filter(query);
+                ArrayList<Fruta> lista = frutaServices.selectBy(query);
 
-                for (int i = 0; i < listaFrutas.size(); i++) {
+                for (int i = 0; i < lista.size(); i++) {
                     defaultTableModel.addRow(new String[]{
-                        String.valueOf(listaFrutas.get(i).getIdFruta()),
-                        listaFrutas.get(i).getNome(),
-                        String.valueOf(listaFrutas.get(i).getValorCusto()),
-                        String.valueOf(listaFrutas.get(i).getQuantidade()),});
+                        String.valueOf(lista.get(i).getIdFruta()),
+                        lista.get(i).getNome(),
+                        String.valueOf(lista.get(i).getValorCusto()),
+                        String.valueOf(lista.get(i).getQuantidade()),});
                 }
                 jTableFrutas.setModel(defaultTableModel);
             }

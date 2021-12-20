@@ -1,5 +1,5 @@
 //PROJECT NAME: prjBruno-quitanda
-package dao;
+package bruno.com.dao;
 /**
  *
  * @author Bruno Gressler da Silveira

@@ -1,12 +1,12 @@
 //PROJECT NAME: prjBruno-quitanda
-package view;
+package bruno.com.view;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import model.Cliente;
-import services.ClienteServices;
-import services.FactoryServices;
+import bruno.com.model.Cliente;
+import bruno.com.services.ClienteServices;
+import bruno.com.services.FactoryServices;
 
 /**
  *
@@ -14,15 +14,15 @@ import services.FactoryServices;
  * @since 25/04/2018 - 14:03
  * @version 1.0 beta
  */
-public class GUIManutencaoDeCliente extends javax.swing.JInternalFrame {
+public class GUIManutencaoDeClientes extends javax.swing.JInternalFrame {
 
     DefaultTableModel defaultTableModel = new DefaultTableModel(
             new Object[][]{},
             new Object[]{"Código", "Nome", "CPF", "Idade"});
 
-    public GUIManutencaoDeCliente() {
+    public GUIManutencaoDeClientes() {
         initComponents();
-        select();
+        selectAll();
     }
 
     @SuppressWarnings("unchecked")
@@ -213,9 +213,9 @@ public class GUIManutencaoDeCliente extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                        .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jbAtualizarCliete, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbLimparCliete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jbLimparCliete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbAtualizarCliete, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jbAlterarCliete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -267,16 +267,14 @@ public class GUIManutencaoDeCliente extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jtNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 781, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelNome)
-                            .addComponent(jLabelCPF))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLayeredPane2)
-                            .addComponent(jtCPF, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabelIdade)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jtIdadeCliente, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(jLabelCPF)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLayeredPane2)
+                                .addComponent(jtCPF, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jLabelIdade)
+                                    .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(jtIdadeCliente, javax.swing.GroupLayout.Alignment.LEADING)))
                         .addContainerGap())))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jScrollPane1)
@@ -321,21 +319,21 @@ public class GUIManutencaoDeCliente extends javax.swing.JInternalFrame {
         jtIdadeCliente.setText(null);
     }
 
-    private void select() {
+    private void selectAll() {
         try {
 
             ClienteServices clienteServices = FactoryServices.getClieteServices();
 
-            ArrayList<Cliente> listaClientes = new ArrayList<>();
+            ArrayList<Cliente> lista = new ArrayList<>();
 
-            listaClientes = clienteServices.select();
+            lista = clienteServices.selectAll();
 
-            for (int i = 0; i < listaClientes.size(); i++) {
+            for (int i = 0; i < lista.size(); i++) {
                 defaultTableModel.addRow(new String[]{
-                    String.valueOf(listaClientes.get(i).getIdCliente()),
-                    String.valueOf(listaClientes.get(i).getNome()),
-                    String.valueOf(listaClientes.get(i).getCpf()),
-                    String.valueOf(listaClientes.get(i).getIdade()),});
+                    String.valueOf(lista.get(i).getIdCliente()),
+                    String.valueOf(lista.get(i).getNome()),
+                    String.valueOf(lista.get(i).getCpf()),
+                    String.valueOf(lista.get(i).getIdade()),});
             }
             jTableCliete.setModel(defaultTableModel);
         } catch (Exception e) {
@@ -364,10 +362,10 @@ public class GUIManutencaoDeCliente extends javax.swing.JInternalFrame {
         jtIdCliente.setText(null);
     }
 
-    private void filter() {
+    private void selectBy() {
         try {
             if (jtPesqCliente.getText().isEmpty()) {
-                select();
+                selectAll();
             } else {
                 String pesquisa = jtPesqCliente.getText();
                 String filtro = jComboCliete.getSelectedItem().toString();
@@ -384,14 +382,14 @@ public class GUIManutencaoDeCliente extends javax.swing.JInternalFrame {
 
                 ClienteServices clienteServices = FactoryServices.getClieteServices();
                 
-                ArrayList<Cliente> listaClientes = clienteServices.filter(query);
+                ArrayList<Cliente> lista = clienteServices.selectBy(query);
 
-                for (int i = 0; i < listaClientes.size(); i++) {
+                for (int i = 0; i < lista.size(); i++) {
                     defaultTableModel.addRow(new String[]{
-                        String.valueOf(listaClientes.get(i).getIdCliente()),
-                        listaClientes.get(i).getNome(),
-                        listaClientes.get(i).getCpf(),
-                        String.valueOf(listaClientes.get(i).getIdade()),});
+                        String.valueOf(lista.get(i).getIdCliente()),
+                        lista.get(i).getNome(),
+                        lista.get(i).getCpf(),
+                        String.valueOf(lista.get(i).getIdade()),});
                 }
                 jTableCliete.setModel(defaultTableModel);
             }
@@ -431,7 +429,7 @@ public class GUIManutencaoDeCliente extends javax.swing.JInternalFrame {
             cliente.setCpf(jtCPF.getText());
             cliente.setIdade(Integer.parseInt(jtIdadeCliente.getText()));
 
-            ClienteServices clienteServices = services.FactoryServices.getClieteServices();
+            ClienteServices clienteServices = bruno.com.services.FactoryServices.getClieteServices();
 
             clienteServices.alter(cliente);
 
@@ -448,34 +446,34 @@ public class GUIManutencaoDeCliente extends javax.swing.JInternalFrame {
 
     private void jbAtualizarClieteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAtualizarClieteActionPerformed
         clear();
-        select();
+        selectAll();
     }//GEN-LAST:event_jbAtualizarClieteActionPerformed
 
     private void jtPesqClienteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtPesqClienteKeyReleased
         clear();
-        filter();
+        selectBy();
     }//GEN-LAST:event_jtPesqClienteKeyReleased
 
     private void jComboClieteItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboClieteItemStateChanged
         clear();
-        filter();
+        selectBy();
     }//GEN-LAST:event_jComboClieteItemStateChanged
 
     private void jComboClieteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jComboClieteKeyReleased
         clear();
-        filter();
+        selectBy();
     }//GEN-LAST:event_jComboClieteKeyReleased
 
     private void jbDeletarClieteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDeletarClieteActionPerformed
         delete();
         clear();
-        select();
+        selectAll();
     }//GEN-LAST:event_jbDeletarClieteActionPerformed
 
     private void jbAlterarClieteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAlterarClieteActionPerformed
         confirmAlter();
         clear();
-        select();
+        selectAll();
     }//GEN-LAST:event_jbAlterarClieteActionPerformed
 
     private void jTableClieteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableClieteMouseClicked

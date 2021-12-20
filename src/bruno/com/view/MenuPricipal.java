@@ -1,14 +1,21 @@
 //PROJECT NAME: prjBruno-quitanda
-package view;
+package bruno.com.view;
+
+//import dao.ClienteDAO;
+//import java.sql.Connection;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
-import persistence.ConexaoBanco;
-import persistence.GUIConexaoMysql;
+import javax.swing.UnsupportedLookAndFeelException;
+//import persistence.ConexaoMysqlBruno;
+//import persistence.ConexaoMysqlGente;
+import bruno.com.persistence.GUIConexaoMysql;
+
 /**
  *
  * @author Bruno Gressler da Silveira
- * @since 25/04/2018 - 14:00
- * @version 1.0 beta
+ * @since 25/04/2018
+ * @version 1
  */
 public class MenuPricipal extends javax.swing.JFrame {
 
@@ -16,6 +23,7 @@ public class MenuPricipal extends javax.swing.JFrame {
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -191,57 +199,66 @@ public class MenuPricipal extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jMenuConexaoMouseClicked
 
-    private void abrirCadastroDeFrutas(){
-        GUICadastroDeFrutas gcc = new GUICadastroDeFrutas();
+    private void abrirCadastroDeFrutas() {
+        GUICadastroDeFruta gcc = new GUICadastroDeFruta();
         jAreaDeTrabalho.add(gcc);
-        gcc.setVisible(true);    
+        gcc.setVisible(true);
     }
-    
-    private void abrirCadastroDeQuitanda(){
+
+    private void abrirCadastroDeQuitanda() {
         GUICadastroDeQuitanda gcq = new GUICadastroDeQuitanda();
         jAreaDeTrabalho.add(gcq);
         gcq.setVisible(true);
     }
-    
-    private void abrirCadastroDeCliente(){
+
+    private void abrirCadastroDeCliente() {
         GUICadastroDeCliente gccl = new GUICadastroDeCliente();
         jAreaDeTrabalho.add(gccl);
-        gccl.setVisible(true);        
+        gccl.setVisible(true);
     }
-    
-    private void abrirManutencaoDeFrutas(){
+
+    private void abrirManutencaoDeFrutas() {
         GUIManutencaoDeFrutas gmf = new GUIManutencaoDeFrutas();
         jAreaDeTrabalho.add(gmf);
-        gmf.setVisible(true);    
+        gmf.setVisible(true);
     }
 
-    private void abrirManutencaoDeQuitanda(){
+    private void abrirManutencaoDeQuitanda() {
         GUIManutencaoDeQuitanda gmq = new GUIManutencaoDeQuitanda();
         jAreaDeTrabalho.add(gmq);
-        gmq.setVisible(true); 
+        gmq.setVisible(true);
     }
 
-    
-    private void abrirManutencaoDeCliente(){
-        GUIManutencaoDeCliente gmcl = new GUIManutencaoDeCliente();
+    private void abrirManutencaoDeCliente() {
+        GUIManutencaoDeClientes gmcl = new GUIManutencaoDeClientes();
         jAreaDeTrabalho.add(gmcl);
-        gmcl.setVisible(true); 
+        gmcl.setVisible(true);
     }
 
-    public static void main(String args[]) {
-        ConexaoBanco c = null;
+    public static void main(String args[]) throws ClassNotFoundException, SQLException {
         try {
-          UIManager.setLookAndFeel("com.jtattoo.plaf.noire.NoireLookAndFeel"); 
-        } catch (Exception e) {
+            UIManager.setLookAndFeel("com.jtattoo.plaf.noire.NoireLookAndFeel");
+        } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e) {
             JOptionPane.showMessageDialog(null, "Falha ao abrir software\n" + e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
         }
-        try {
-            c.getConexao();
-        } catch (Exception e) {
-            
-        } finally {
-            
+        /*
+        Connection conexaoMysqlGente = null;
+        Connection conexaoMysqlBruno = null;
+        Connection conexao = null;
+        conexaoMysqlBruno = ConexaoMysqlBruno.conectar();
+        if (conexaoMysqlBruno == null) {
+            conexaoMysqlGente = ConexaoMysqlGente.conectar();
+            conexao = conexaoMysqlGente;
+            System.out.println("conexao gente");
+        } else {
+            conexao = conexaoMysqlBruno;
         }
+        if (conexaoMysqlBruno == null && conexaoMysqlGente == null) {
+            System.out.println("conexao não encontrada");
+            System.exit(0);
+        }
+        conexao.close();
+        */
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -287,4 +304,4 @@ public class MenuPricipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuManutencao;
     private javax.swing.JMenu jMenuSair;
     // End of variables declaration//GEN-END:variables
-}//fecha classe menuPrincipal
+}

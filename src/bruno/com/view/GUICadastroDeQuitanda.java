@@ -1,10 +1,10 @@
 //PROJECT NAME: prjBruno-quitanda
-package view;
+package bruno.com.view;
 
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
-import model.Quitanda;
-import services.QuitandaServices;
+import bruno.com.model.Quitanda;
+import bruno.com.services.QuitandaServices;
 
 /**
  *
@@ -243,7 +243,7 @@ public class GUICadastroDeQuitanda extends javax.swing.JInternalFrame {
             quitanda.setClientes(jtClieteQuitanda.getText());
             quitanda.setFuncionarios(jtFuncionarioQuitanda.getText());
 
-            QuitandaServices quitandaServices = services.FactoryServices.getQuitandaServices();
+            QuitandaServices quitandaServices = bruno.com.services.FactoryServices.getQuitandaServices();
 
             quitandaServices.insert(quitanda);
 

@@ -140,8 +140,8 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jtQuantidade" max="32767" attributes="0"/>
-                      <Component id="jtValor" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jtValor" max="32767" attributes="0"/>
+                      <Component id="jtNome" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jlValor" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -150,7 +150,7 @@
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="jtNome" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jtQuantidade" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -162,15 +162,15 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jlNome" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jtValor" min="-2" max="-2" attributes="0"/>
+                  <Component id="jtNome" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jlValor" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jtQuantidade" min="-2" max="-2" attributes="0"/>
+                  <Component id="jtValor" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jlQuantidade" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jtNome" min="-2" max="-2" attributes="0"/>
+                  <Component id="jtQuantidade" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -201,6 +201,11 @@
             <Property name="text" type="java.lang.String" value="Quantidade:"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JTextField" name="jtQuantidade">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtQuantidadeKeyPressed"/>
+          </Events>
+        </Component>
         <Component class="javax.swing.JTextField" name="jtNome">
           <Events>
             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtNomeKeyPressed"/>
@@ -209,11 +214,6 @@
         <Component class="javax.swing.JTextField" name="jtValor">
           <Events>
             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtValorKeyPressed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jtQuantidade">
-          <Events>
-            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtQuantidadeKeyPressed"/>
           </Events>
         </Component>
       </SubComponents>

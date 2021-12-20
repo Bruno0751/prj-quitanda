@@ -1,10 +1,10 @@
 //PROJECT NAME: prjBruno-quitanda
-package view;
+package bruno.com.view;
 
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
-import model.Cliente;
-import services.ClienteServices;
+import bruno.com.model.Cliente;
+import bruno.com.services.ClienteServices;
 
 /**
  *
@@ -250,7 +250,7 @@ public class GUICadastroDeCliente extends javax.swing.JInternalFrame {
             cliente.setCpf(jtCPF.getText());
             cliente.setIdade(Integer.parseInt(jtIdadeCliente.getText()));
 
-            ClienteServices clienteService = services.FactoryServices.getClieteServices();
+            ClienteServices clienteService = bruno.com.services.FactoryServices.getClieteServices();
 
             clienteService.insert(cliente);
 

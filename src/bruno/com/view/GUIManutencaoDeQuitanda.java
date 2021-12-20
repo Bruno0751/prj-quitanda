@@ -1,12 +1,12 @@
 //PROJECT NAME: prjBruno-quitanda
-package view;
+package bruno.com.view;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import model.Quitanda;
-import services.QuitandaServices;
-import services.FactoryServices;
+import bruno.com.model.Quitanda;
+import bruno.com.services.QuitandaServices;
+import bruno.com.services.FactoryServices;
 
 /**
  *
@@ -351,16 +351,16 @@ public class GUIManutencaoDeQuitanda extends javax.swing.JInternalFrame {
 
             QuitandaServices quitandaServices = FactoryServices.getQuitandaServices();
 
-            ArrayList<Quitanda> listaQuitandas = new ArrayList<>();
+            ArrayList<Quitanda> lista = new ArrayList<>();
 
-            listaQuitandas = quitandaServices.select();
+            lista = quitandaServices.select();
 
-            for (int i = 0; i < listaQuitandas.size(); i++) {
+            for (int i = 0; i < lista.size(); i++) {
                 defaultTableModel.addRow(new String[]{
-                    String.valueOf(listaQuitandas.get(i).getIdQuitanda()),
-                    String.valueOf(listaQuitandas.get(i).getNome()),
-                    String.valueOf(listaQuitandas.get(i).getClientes()),
-                    String.valueOf(listaQuitandas.get(i).getFuncionarios())
+                    String.valueOf(lista.get(i).getIdQuitanda()),
+                    String.valueOf(lista.get(i).getNome()),
+                    String.valueOf(lista.get(i).getClientes()),
+                    String.valueOf(lista.get(i).getFuncionarios())
                 });
             }
             jTableQuitanda.setModel(defaultTableModel);
@@ -468,7 +468,7 @@ public class GUIManutencaoDeQuitanda extends javax.swing.JInternalFrame {
             quitanda.setClientes(jtClienteQuitanda.getText());
             quitanda.setFuncionarios(jtFuncionarioQuitanda.getText());
 
-            QuitandaServices quitandaServices = services.FactoryServices.getQuitandaServices();
+            QuitandaServices quitandaServices = bruno.com.services.FactoryServices.getQuitandaServices();
 
             quitandaServices.update(quitanda);
 

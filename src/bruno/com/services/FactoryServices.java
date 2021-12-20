@@ -1,5 +1,5 @@
 //PROJECT NAME: prjBruno-quitanda
-package services;
+package bruno.com.services;
 /**
  *
  * @author Bruno Gressler da Silveira

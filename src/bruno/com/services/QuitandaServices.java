@@ -1,10 +1,10 @@
 //PROJECT NAME: prjBruno-quitanda
-package services;
-import dao.DAOFactory;
-import dao.QuitandaDAO;
+package bruno.com.services;
+import bruno.com.dao.DAOFactory;
+import bruno.com.dao.QuitandaDAO;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import model.Quitanda;
+import bruno.com.model.Quitanda;
 /**
  *
  * @author Bruno Gressler da Silveira
@@ -30,7 +30,7 @@ public class QuitandaServices {
     
     public  void deletarQuitanda(long id) throws SQLException, ClassNotFoundException {
       QuitandaDAO quitandaDAO = DAOFactory.getQuitandaDAO();
-      quitandaDAO.deletarQuitanda(id);
+      quitandaDAO.delte(id);
     }
     
     public void update(Quitanda quitanda) throws SQLException, ClassNotFoundException {

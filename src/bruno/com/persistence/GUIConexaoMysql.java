@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package persistence;
+package bruno.com.persistence;
 
-import view.MenuPricipal;
+import bruno.com.view.MenuPricipal;
 
 /**
  *
@@ -166,7 +166,7 @@ public class GUIConexaoMysql extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuVoltarMouseClicked
 
     private void jButtonTestarConexaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTestarConexaoActionPerformed
-        ConexaoBanco conexaoBanco = new ConexaoBanco();
+        ConexaoMysqlBruno conexaoBanco = new ConexaoMysqlBruno();
         
     }//GEN-LAST:event_jButtonTestarConexaoActionPerformed
 

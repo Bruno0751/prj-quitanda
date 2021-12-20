@@ -1,5 +1,5 @@
 //PROJECT NAME: prjBruno-quitanda
-package model;
+package bruno.com.model;
 
 /**
  *

@@ -1,10 +1,10 @@
 //PROJECT NAME: prjBruno-quitanda
-package services;
-import dao.ClienteDAO;
-import dao.DAOFactory;
+package bruno.com.services;
+import bruno.com.dao.ClienteDAO;
+import bruno.com.dao.DAOFactory;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import model.Cliente;
+import bruno.com.model.Cliente;
 /**
  *
  * @author Bruno Gressler da Silveira
@@ -18,14 +18,14 @@ public class ClienteServices {
         clienteDAO.insert(obj);
     }
     
-    public ArrayList<Cliente> select() throws SQLException, ClassNotFoundException {
+    public ArrayList<Cliente> selectAll() throws SQLException, ClassNotFoundException {
         ClienteDAO clienteDAO = DAOFactory.getClienteDAO();
-        return clienteDAO.select();
+        return clienteDAO.selectAll();
     }
     
-    public ArrayList<Cliente> filter(String query) throws SQLException, ClassNotFoundException {
+    public ArrayList<Cliente> selectBy(String query) throws SQLException, ClassNotFoundException {
         ClienteDAO clienteDAO = DAOFactory.getClienteDAO();
-        return clienteDAO.filter(query);
+        return clienteDAO.selectBy(query);
     }
     
     public  void delete(long id) throws SQLException, ClassNotFoundException {

@@ -1,10 +1,10 @@
 //PROJECT NAME: prjBruno-quitanda
-package view;
+package bruno.com.view;
 
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
-import model.Fruta;
-import services.FrutaServices;
+import bruno.com.model.Fruta;
+import bruno.com.services.FrutaServices;
 
 /**
  *
@@ -12,9 +12,9 @@ import services.FrutaServices;
  * @since 25/04/2018 - 14:06
  * @version 1.0 beta
  */
-public class GUICadastroDeFrutas extends javax.swing.JInternalFrame {
+public class GUICadastroDeFruta extends javax.swing.JInternalFrame {
 
-    public GUICadastroDeFrutas() {
+    public GUICadastroDeFruta() {
         initComponents();
     }
 
@@ -30,9 +30,9 @@ public class GUICadastroDeFrutas extends javax.swing.JInternalFrame {
         jlNome = new javax.swing.JLabel();
         jlValor = new javax.swing.JLabel();
         jlQuantidade = new javax.swing.JLabel();
+        jtQuantidade = new javax.swing.JTextField();
         jtNome = new javax.swing.JTextField();
         jtValor = new javax.swing.JTextField();
-        jtQuantidade = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -110,6 +110,12 @@ public class GUICadastroDeFrutas extends javax.swing.JInternalFrame {
         jlQuantidade.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jlQuantidade.setText("Quantidade:");
 
+        jtQuantidade.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jtQuantidadeKeyPressed(evt);
+            }
+        });
+
         jtNome.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jtNomeKeyPressed(evt);
@@ -122,18 +128,12 @@ public class GUICadastroDeFrutas extends javax.swing.JInternalFrame {
             }
         });
 
-        jtQuantidade.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jtQuantidadeKeyPressed(evt);
-            }
-        });
-
         jlpDadosCadastroCoisas.setLayer(jlNome, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jlpDadosCadastroCoisas.setLayer(jlValor, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jlpDadosCadastroCoisas.setLayer(jlQuantidade, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jlpDadosCadastroCoisas.setLayer(jtQuantidade, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jlpDadosCadastroCoisas.setLayer(jtNome, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jlpDadosCadastroCoisas.setLayer(jtValor, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jlpDadosCadastroCoisas.setLayer(jtQuantidade, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jlpDadosCadastroCoisasLayout = new javax.swing.GroupLayout(jlpDadosCadastroCoisas);
         jlpDadosCadastroCoisas.setLayout(jlpDadosCadastroCoisasLayout);
@@ -142,15 +142,15 @@ public class GUICadastroDeFrutas extends javax.swing.JInternalFrame {
             .addGroup(jlpDadosCadastroCoisasLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jlpDadosCadastroCoisasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jtQuantidade)
                     .addComponent(jtValor)
+                    .addComponent(jtNome)
                     .addGroup(jlpDadosCadastroCoisasLayout.createSequentialGroup()
                         .addGroup(jlpDadosCadastroCoisasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jlValor)
                             .addComponent(jlNome)
                             .addComponent(jlQuantidade))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jtNome))
+                    .addComponent(jtQuantidade))
                 .addContainerGap())
         );
         jlpDadosCadastroCoisasLayout.setVerticalGroup(
@@ -159,15 +159,15 @@ public class GUICadastroDeFrutas extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jlNome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jlValor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jlQuantidade)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -203,6 +203,12 @@ public class GUICadastroDeFrutas extends javax.swing.JInternalFrame {
         clear();
     }//GEN-LAST:event_jbLimparCadastroCoisasActionPerformed
 
+    private void jtQuantidadeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtQuantidadeKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            jtNome.grabFocus();
+        }
+    }//GEN-LAST:event_jtQuantidadeKeyPressed
+
     private void jtNomeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNomeKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             jtValor.grabFocus();
@@ -211,15 +217,9 @@ public class GUICadastroDeFrutas extends javax.swing.JInternalFrame {
 
     private void jtValorKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtValorKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            jtQuantidade.grabFocus();
-        }
-    }//GEN-LAST:event_jtValorKeyPressed
-
-    private void jtQuantidadeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtQuantidadeKeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             jbCadastroCoisas.grabFocus();
         }
-    }//GEN-LAST:event_jtQuantidadeKeyPressed
+    }//GEN-LAST:event_jtValorKeyPressed
 
     private void jbCadastroCoisasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jbCadastroCoisasKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -235,11 +235,11 @@ public class GUICadastroDeFrutas extends javax.swing.JInternalFrame {
         try {
             Fruta fruta = new Fruta();
 
-            fruta.setNome(jtNome.getText());
+            fruta.setNome(jlNome.getText());
             fruta.setValorCusto(Float.parseFloat(jtValor.getText()));
             fruta.setQuantidade(Integer.parseInt(jtQuantidade.getText()));
 
-            FrutaServices frutaServices = services.FactoryServices.getFrutasServices();
+            FrutaServices frutaServices = bruno.com.services.FactoryServices.getFrutasServices();
 
             frutaServices.insert(fruta);
 
@@ -252,10 +252,10 @@ public class GUICadastroDeFrutas extends javax.swing.JInternalFrame {
     }
 
     private void clear() {
+        jtQuantidade.setText(null);
         jtNome.setText(null);
         jtValor.setText(null);
-        jtQuantidade.setText(null);
-        jtNome.grabFocus();
+        jtQuantidade.grabFocus();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

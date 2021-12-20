@@ -1,10 +1,10 @@
 //PROJECT NAME: prjBruno-quitanda
-package services;
-import dao.FrutaDAO;
-import dao.DAOFactory;
+package bruno.com.services;
+import bruno.com.dao.FrutaDAO;
+import bruno.com.dao.DAOFactory;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import model.Fruta;
+import bruno.com.model.Fruta;
 /**
  *
  * @author Bruno Gressler da Silveira
@@ -18,14 +18,14 @@ public class FrutaServices {
         frutaDAO.insert(obj);
     }
     
-    public ArrayList<Fruta> select() throws SQLException, ClassNotFoundException {
+    public ArrayList<Fruta> selectAll() throws SQLException, ClassNotFoundException {
         FrutaDAO frutaDAO = DAOFactory.getFrutasDAO();
-        return frutaDAO.select();
+        return frutaDAO.selectAll();
     }
     
-    public ArrayList<Fruta> filter(String query) throws SQLException, ClassNotFoundException {
+    public ArrayList<Fruta> selectBy(String query) throws SQLException, ClassNotFoundException {
         FrutaDAO frutaDAO = DAOFactory.getFrutasDAO();
-        return frutaDAO.filter(query);
+        return frutaDAO.selectBy(query);
     }
     
     public  void delete(long id) throws SQLException, ClassNotFoundException {
